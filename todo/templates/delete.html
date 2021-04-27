@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Tasks</title>
+</head>
+<body>
+    {% if user.is_authenticated}
+        <form method='post'>{% csrf_token %}
+            {% for task in tasks %}
+                <p name="task-name">{{ task.task_name }}</p>
+                <p name="task-desc">{{ task.task_desc }}</p>
+                <p name="deadline">{{ task.task_deadline }}</p>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            {% endfor %}
+        </form>
+    {% endif %}
+</body>
+</html>
