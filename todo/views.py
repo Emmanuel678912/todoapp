@@ -54,7 +54,8 @@ def logout_view(request):
 
 def register(request):
     # collects customer group from database
-    customers = Group.objects.get(name='customers')
+    # if 
+    # customers = Group.objects.get(name='customers')
 
     #customers.has_change_permission(request, obj=Task)
     #customers.has_view_permission(request, obj=Task)
@@ -79,7 +80,7 @@ def register(request):
         user = User.objects.create_user(is_superuser=False, username=username, password=password, last_name=lastname, first_name=firstname)
 
         # adds new user to customer group
-        customers.user_set.add(user)
+        #customers.user_set.add(user)
 
         # saves user data
         user.save()
